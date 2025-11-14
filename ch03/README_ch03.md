@@ -61,18 +61,18 @@ python cbow_predict.py
 ##### 반복(iteration)의 의미
 ```python
 batch_size = 3
-max_epoch = 1000
 ```
 
 ###### 전체 데이터 크기 확인
 ```python
 text = 'You say goodbye and I say hello.'
 # 전처리 후 단어: you, say, goodbye, and, i, say, hello
-# contexts-target 쌍: 약 6개 (example_context_target에 text 넣고 돌려보면 확인 가능)
+# contexts-target 쌍: 6개 (**example_context_target에 text 넣고 돌려보면 확인 가능**)
 ```
 
 ###### 1 에폭당 반복 횟수
 ```python
+# 전체 데이터 수: contexts-target 쌍
 반복 횟수 = ceil(전체 데이터 수 / batch_size)
           = ceil(6 / 3)
           = 2
@@ -80,7 +80,6 @@ text = 'You say goodbye and I say hello.'
 
 따라서 **"반복 1 / 2"**는:
 - 전체 데이터를 `batch_size=3`으로 나누면 **2번의 배치**가 필요
-- 현재 1번째 배치를 처리 중
 
 ---
 
@@ -99,4 +98,4 @@ text = 'You say goodbye and I say hello.'
 1000 에폭 = 2000 반복 (총)
 ```
 
-## word2vec 보충: skip-gram
+## 3. skip-gram
