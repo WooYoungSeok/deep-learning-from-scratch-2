@@ -1,0 +1,22 @@
+# Ignore Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Ignore typical Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+pip-wheel-metadata/
+
+# Optional: Jupyter, editors, linters
+.ipynb_checkpoints
+.vscode/
+.pytest_cache/
+.mypy_cache/
+
+# Build / dist
+build/
+dist/

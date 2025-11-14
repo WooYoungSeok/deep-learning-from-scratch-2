@@ -22,5 +22,5 @@ out_layer = MatMul(W_out)
 h0 = in_layer0.forward(c0)
 h1 = in_layer1.forward(c1)
 h = 0.5 * (h0 + h1)
-s = out_layer.forward(h)
+s = out_layer.forward(h) # 각 단어의 점수를 구한다.
 print(s)
