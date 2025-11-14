@@ -1,6 +1,14 @@
 # coding: utf-8
 import sys
 sys.path.append('..')  # 부모 디렉터리의 파일을 가져올 수 있도록 설정
+
+import matplotlib.pyplot as plt
+from matplotlib import font_manager, rc
+
+# 한글 폰트 설정
+plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
+
 from common.trainer import Trainer
 from common.optimizer import Adam
 from simple_cbow import SimpleCBOW

@@ -44,7 +44,7 @@ class SimpleCBOW:
         loss = self.loss_layer.forward(score, target)
         return loss
 
-    # 역전파
+    # 역전파: 순전파의 역순으로 기울기 계산
     def backward(self, dout=1):
         ds = self.loss_layer.backward(dout)
         da = self.out_layer.backward(ds)

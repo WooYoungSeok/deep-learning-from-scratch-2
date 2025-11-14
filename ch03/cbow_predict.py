@@ -8,6 +8,7 @@ from common.layers import MatMul
 # 샘플 맥락 데이터
 c0 = np.array([[1, 0, 0, 0, 0, 0, 0]])
 c1 = np.array([[0, 0, 1, 0, 0, 0, 0]])
+### 타겟 데이터(t)는 say, t = np.array([[0, 1, 0, 0, 0, 0, 0]])
 
 # 가중치 초기화
 W_in = np.random.randn(7, 3)
