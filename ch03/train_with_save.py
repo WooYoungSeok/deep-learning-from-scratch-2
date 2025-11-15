@@ -6,23 +6,27 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
 import numpy as np
 
-# 한글 폰트 설정
+########## 한글 폰트 설정 ##########
 # plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
 plt.rcParams['font.family'] = 'AppleGothic'  # macOS
 plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
+########## ########## ##########
 
 from common.trainer import Trainer
 from common.optimizer import Adam
 from simple_cbow import SimpleCBOW
 from common.util import preprocess, create_contexts_target, convert_one_hot
 
-
+######## 하이퍼파라미터 설정 ##########
 window_size = 1
 hidden_size = 5
 batch_size = 3
 max_epoch = 1000
+######### ############# ###########
 
-text = 'I say hello and you say goodbye.' # 샘플 텍스트 데이터 => 대체 가능
+######### 샘플 텍스트 데이터 => 대체 가능 #########
+text = 'I say hello and you say goodbye.' 
+######### ######################## #########
 
 # 텍스트 기반 파일명 생성 (첫 3단어 사용)
 def create_filename_from_text(text, max_words=3):
