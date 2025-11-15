@@ -4,6 +4,8 @@ venv/
 env/
 ENV/
 
+myenv/
+
 # Ignore typical Python artifacts
 __pycache__/
 *.py[cod]
@@ -20,3 +22,9 @@ pip-wheel-metadata/
 # Build / dist
 build/
 dist/
+# CBOW 학습 파일
+ch03/cbow_params_W_in_*.npy
+ch03/cbow_params_W_out_*.npy
+ch03/word_to_id_*.npy
+ch03/id_to_word_*.npy
+ch03/training_text_*.txt
