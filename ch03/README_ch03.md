@@ -40,22 +40,27 @@ pip install numpy matplotlib scipy
 ```
 
 #### 환경 체크
+cbow의 inference 단순 예시  
+모델 로드 과정이 없어서, 그냥 랜덤값 출력
 ```bash
 python cbow_predict.py
 ```
 
 ## 2. cbow 학습
+##### py 파일 실행 방법
+```bash
+python [file_name].py
+```
+
 ### train.py
-`train.py` 파일을 확인하여 학습 과정 확인.
+`train_with_save.py` 파일을 확인하여 학습 과정 확인.
 
 ### simple_cbow.py
 `simple_cbow` 파일을 확인하여 모델 구조 확인.
 
 ### 학습 시작
-`train.py`를 실행 및 loss값 plot 확인.
+`train_with_save.py`를 실행 및 loss값 plot 확인.
 
-### 예측값 확인
-`cbow_predict.py`를 실행하고 terminal 창 확인.
 #### 반복(iteration)과 에폭(epoch)의 의미
 
 ##### 반복(iteration)의 의미
@@ -97,5 +102,9 @@ text = 'You say goodbye and I say hello.'
 
 1000 에폭 = 2000 반복 (총)
 ```
+
+### 예측값 확인
+`inference.py`를 원하는 test 데이터로 수정 후, 실행하고 terminal 창 확인.
+원하는 text로 학습된 모델 번호 입력.
 
 ## 3. skip-gram
