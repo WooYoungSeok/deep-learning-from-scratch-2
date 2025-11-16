@@ -29,7 +29,9 @@ class SimpleSkipGram:
         # 인스턴스 변수에 단어의 분산 표현을 저장한다.
         self.word_vecs = W_in
 
-    def forward(self, contexts, target):
+    # Skip-gram: 중심 단어(target)로부터 맥락 단어들(contexts) 예측
+    # trainer.fit(target, contexts)로 호출되므로 매개변수 순서를 target, contexts로 수정
+    def forward(self, target, contexts):
         h = self.in_layer.forward(target)
         s = self.out_layer.forward(h)
         l1 = self.loss_layer1.forward(s, contexts[:, 0])
