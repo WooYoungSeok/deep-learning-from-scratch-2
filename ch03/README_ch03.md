@@ -1,5 +1,6 @@
 # ch03 w2v 실습 흐름
 ## 0. 기존 github와 비교
+https://github.com/WegraLee/deep-learning-from-scratch-2
 
 ## 1. VScode 환경 준비
 ### 저장소 클론
@@ -18,6 +19,10 @@ code .
 ```
 
 ### 가상환경 및 패키지 준비
+
+##### 참고) 깃헙에 올리지 않을 파일 설정 방법
+.gitignore 파일 생성
+venv/ 한줄 작성하면, 'venv'이름의 폴더 git이 무시
 
 #### Python 가상환경 생성
 ```bash
@@ -40,6 +45,11 @@ python --version
 pip install numpy matplotlib scipy
 ```
 
+#### 이번주차 디렉토리로 이동
+```bash
+cd ch03
+```
+
 #### 환경 체크
 ```bash
 python example_cbow_predict.py
@@ -54,13 +64,11 @@ cbow의 inference 단순 예시
 python [file_name].py
 ```
 
-### train_with_save.py
-`train_with_save.py` 파일을 확인하여 학습 과정 확인.
-
 ### simple_cbow.py
 `simple_cbow` 파일을 확인하여 모델 구조 확인.
 
-### 학습 시작
+### train_with_save.py
+`train_with_save.py` 파일을 확인하여 학습 과정 확인.
 `train_with_save.py`를 실행 및 loss값 plot 확인.
 
 #### 반복(iteration)과 에폭(epoch)의 의미
@@ -111,16 +119,19 @@ text = 'You say goodbye and I say hello.'
 * 예측결과 메모장 등에 남겨놓기
 
 ## 3. skip-gram
-### skipgram vs cbow 학습 과정 차이
+### skipgram vs cbow 모델 구조
+`simple_skip_gram.py`를 통해 확인.
+
+### skipgram vs cbow 학습 과정
 `train_skipgram_with_save.py`를 통해 확인.
 
-### skipgram vs cbow 모델 과정 차이
+### skipgram vs cbow 추론 과정
 `inference_skipgram.py`를 통해 확인.
 
 ### 학습 시작
 `train_skipgram_with_save.py`를 실행 및 loss값 plot 확인.
 
 ### 추론 성능 확인
-`inference.py`를 원하는 test 데이터로 수정 후, 실행하고 terminal 창 확인.
+`inference_skipgram.py`를 원하는 test 데이터로 수정 후, 실행하고 terminal 창 확인.
 원하는 text로 학습된 모델 번호 입력.
 * 예측결과 메모장 등에 남겨놓기.

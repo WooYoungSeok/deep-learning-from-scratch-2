@@ -23,7 +23,7 @@ def create_contexts_target(corpus, window_size=1):
     return np.array(contexts), np.array(target)
 
 # 예시 사용법
-text = 'what are you doing?' # 샘플 텍스트 데이터 => 대체 가능
+text = 'I say hello and you say goodbye.' # 샘플 텍스트 데이터 => 대체 가능
 corpus, word_to_id, id_to_word = preprocess(text)
 
 # contexts, target: 반복해서 등장하는 단어는 앞서서 등장한 index로 저장

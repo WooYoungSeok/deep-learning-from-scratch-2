@@ -7,8 +7,8 @@ from matplotlib import font_manager, rc
 import numpy as np
 
 ########## 한글 폰트 설정 ##########
-# plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
-plt.rcParams['font.family'] = 'AppleGothic'  # macOS
+plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
+# plt.rcParams['font.family'] = 'AppleGothic'  # macOS
 plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 ########## ########## ##########
 
@@ -18,7 +18,7 @@ from simple_cbow import SimpleCBOW
 from common.util import preprocess, create_contexts_target, convert_one_hot
 
 ######## 하이퍼파라미터 설정 ##########
-window_size = 1
+window_size = 1 # 현재 모델 구조는 맥락 크기 1로 고정
 hidden_size = 5
 batch_size = 3
 max_epoch = 1000
@@ -44,9 +44,9 @@ print(f'파일 식별자: {file_id}\n')
 corpus, word_to_id, id_to_word = preprocess(text)
 
 vocab_size = len(word_to_id)
-# 맥락(context)과 타겟(target) 생성 => example.py 참고
+# 맥락(context)과 타겟(target) 생성 => example_context_target.py 참고(같이 보기)
 contexts, target = create_contexts_target(corpus, window_size)
-# 원-핫 인코딩: 숫자를 벡터로 변환 => example.py 참고
+# 원-핫 인코딩: 숫자를 벡터로 변환 => example_one_hot.py 참고
 target = convert_one_hot(target, vocab_size)
 contexts = convert_one_hot(contexts, vocab_size)
 
@@ -58,7 +58,8 @@ trainer = Trainer(model, optimizer)
 trainer.fit(contexts, target, max_epoch, batch_size)
 trainer.plot()
 
-# 학습된 단어의 분산 표현 출력
+# 학습된 단어의 분산 표현 출력 - 은닉층에 어떻게 단어가 분포하는지 확인
+print('\n학습된 단어의 분산 표현:')
 word_vecs = model.word_vecs
 for word_id, word in id_to_word.items():
     print(word, word_vecs[word_id])
