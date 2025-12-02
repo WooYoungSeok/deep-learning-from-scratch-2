@@ -7,8 +7,8 @@ from matplotlib import font_manager, rc
 import numpy as np
 
 ########## 한글 폰트 설정 ##########
-plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
-# plt.rcParams['font.family'] = 'AppleGothic'  # macOS
+# plt.rcParams['font.family'] = 'Malgun Gothic'  # Windows
+plt.rcParams['font.family'] = 'AppleGothic'  # macOS
 plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 ########## ########## ##########
 
