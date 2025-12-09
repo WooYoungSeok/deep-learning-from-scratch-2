@@ -89,7 +89,7 @@ class NegativeSamplingLoss:
 
         # 긍정적 예 순전파
         score = self.embed_dot_layers[0].forward(h, target)
-        correct_label = np.ones(batch_size, dtype=np.int32)
+        correct_label = np.ones(batch_size, dtype=np.int32) # 정답 단어도 배치로 받기 때문에, 정답 라벨도 배치사이즈와 동일한 크기의 array로 만듦
         loss = self.loss_layers[0].forward(score, correct_label)
 
         # 부정적 예 순전파
