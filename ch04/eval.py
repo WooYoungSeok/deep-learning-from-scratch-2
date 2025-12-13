@@ -1,12 +1,14 @@
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.insert(0, '..')  # 부모 디렉터리를 최우선으로 import
 from common.util import most_similar, analogy
 import pickle
 
-
-pkl_file = 'cbow_params.pkl'
-# pkl_file = 'skipgram_params.pkl'
+# 파라미터 파일명을 직접 넣어서 로드
+# 커맨드라인: 학습 파일처럼 하이퍼파라미터가 많으면 용이
+# 코드 파일내 수정: eval 파일처럼 파라미터 파일 하나 로드하는 경우 용이
+# pkl_file = 'cbow_params.pkl'
+pkl_file = 'skipgram_params.pkl'
 
 with open(pkl_file, 'rb') as f:
     params = pickle.load(f)

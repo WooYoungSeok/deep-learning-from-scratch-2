@@ -1,6 +1,6 @@
 # coding: utf-8
 import sys
-sys.path.append('..')
+sys.path.insert(0, '..')  # 부모 디렉터리를 최우선으로 import
 import numpy as np
 from common import config
 # GPU에서 실행하려면 아래 주석을 해제하세요(CuPy 필요). => CUDA 버전에 맞는 CuPy wheel 설치(터미널에 nvidia-smi로 버전 확인 후 https://docs.cupy.dev/en/stable/install.html 참고)
@@ -18,7 +18,7 @@ import argparse
 
 # 커맨드 라인 인자 파싱
 parser = argparse.ArgumentParser(description='Word2Vec 학습 (CBOW 또는 Skip-gram)')
-parser.add_argument('--model', type=str, default='cbow', choices=['cbow', 'skipgram'],
+parser.add_argument('model', type=str, nargs='?', default='cbow', choices=['cbow', 'skipgram'],
                     help='학습할 모델 선택: cbow 또는 skipgram (기본값: cbow)')
 parser.add_argument('--window_size', type=int, default=5,
                     help='윈도우 크기 (기본값: 5)')
@@ -74,7 +74,7 @@ trainer.fit(contexts, target, max_epoch, batch_size)
 trainer.plot()
 
 # 나중에 사용할 수 있도록 필요한 데이터 저장
-word_vecs = model.word_vecs
+word_vecs = model.word_vecs # 단어 표현 벡터(임베딩 값으로 사용하기도 함)
 if config.GPU:
     word_vecs = to_cpu(word_vecs)
 params = {}
